@@ -1,0 +1,272 @@
+.homepage {
+          width: 100%;
+          overflow-x: hidden;
+        }
+
+        .hero-section {
+          background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+          padding: 80px 20px;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+
+        .hero-content {
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .subtitle {
+          color: #3b82f6;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 2px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .main-title {
+          font-size: 64px;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 80px;
+          color: #1a1a1a;
+          position: relative;
+          display: inline-block;
+          width: 100%;
+        }
+
+        .main-title::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 200px;
+          height: 4px;
+          background: #3b82f6;
+        }
+
+        .features-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+          align-items: start;
+        }
+
+        .features-left {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .feature-item {
+          display: flex;
+          gap: 20px;
+          align-items: flex-start;
+        }
+
+        .feature-number {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: #3b82f6;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          font-weight: 700;
+          flex-shrink: 0;
+        }
+
+        .feature-number.dark {
+          background: #1a1a1a;
+        }
+
+        .feature-content {
+          flex: 1;
+        }
+
+        .feature-title {
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #1a1a1a;
+        }
+
+        .feature-list {
+          list-style: none;
+          padding: 0;
+        }
+
+        .feature-list li {
+          padding-left: 20px;
+          margin-bottom: 12px;
+          position: relative;
+          color: #555;
+          font-size: 16px;
+        }
+
+        .feature-list li::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: #3b82f6;
+          font-weight: bold;
+        }
+
+        .features-right {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          perspective: 1000px;
+        }
+
+        .dashboard-image {
+          width: 100%;
+          max-width: 700px;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+          transform: rotateY(-5deg) rotateX(2deg);
+          transition: transform 0.3s ease;
+        }
+
+        .dashboard-image:hover {
+          transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        .clm-section {
+          background: white;
+          padding: 100px 20px;
+        }
+
+        .clm-content {
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+
+        .clm-title {
+          font-size: 56px;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 30px;
+          color: #1a1a1a;
+        }
+
+        .clm-description {
+          text-align: center;
+          font-size: 18px;
+          color: #666;
+          max-width: 900px;
+          margin: 0 auto 80px;
+          line-height: 1.8;
+        }
+
+        .clm-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 80px;
+          align-items: center;
+        }
+
+        .clm-diagram {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .diagram-image {
+          width: 100%;
+          max-width: 500px;
+          height: auto;
+          border-radius: 12px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .clm-features {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .clm-feature-card {
+          padding: 30px;
+          border-radius: 12px;
+          background: #f9fafb;
+          transition: all 0.3s ease;
+          border-left: 4px solid transparent;
+        }
+
+        .clm-feature-card:hover {
+          background: white;
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+          border-left-color: #3b82f6;
+          transform: translateX(5px);
+        }
+
+        .clm-icon {
+          font-size: 32px;
+          margin-bottom: 15px;
+        }
+
+        .clm-feature-title {
+          font-size: 22px;
+          font-weight: 600;
+          margin-bottom: 12px;
+          color: #1a1a1a;
+        }
+
+        .clm-feature-text {
+          color: #555;
+          font-size: 15px;
+          line-height: 1.8;
+        }
+
+        @media (max-width: 1024px) {
+          .features-grid,
+          .clm-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .main-title {
+            font-size: 48px;
+          }
+
+          .clm-title {
+            font-size: 42px;
+          }
+
+          .dashboard-image {
+            transform: none;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .hero-section,
+          .clm-section {
+            padding: 60px 20px;
+          }
+
+          .main-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+          }
+
+          .clm-title {
+            font-size: 32px;
+          }
+
+          .feature-title,
+          .clm-feature-title {
+            font-size: 20px;
+          }
+
+          .clm-description {
+            font-size: 16px;
+          }
+        }
