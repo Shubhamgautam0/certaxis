@@ -13,16 +13,21 @@ body {
 .app {
   display: flex;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 /* Sidebar Styles */
 .sidebar {
   width: 280px;
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: linear-gradient(135deg, #1a3cb7 0%, #2a5298 100%);
   color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top:0;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .sidebar-header h1 {
@@ -68,8 +73,15 @@ body {
   opacity: 0.8;
 }
 
+.sidebar-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  /* margin: 5px 0; */
+}
+
 .sidebar-nav {
   flex: 1;
+  overflow-y: auto;
 }
 
 .nav-item {
@@ -83,6 +95,7 @@ body {
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  margin-top: 10px;
 }
 
 .nav-item:hover {
@@ -120,14 +133,12 @@ body {
   margin-left: 20px;
   margin-top: 5px;
   margin-bottom: 5px;
-  /* border-left: 2px solid rgba(255, 255, 255, 0.1); */
 }
 
 .subitem {
   padding: 10px 16px 10px 24px;
   font-size: 14px;
   margin-bottom: 2px;
-  /* background: rgba(255, 255, 255, 0.05); */
 }
 
 .subitem:hover {
@@ -201,6 +212,7 @@ body {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+  height: 100vh;
 }
 
 .dashboard-header {

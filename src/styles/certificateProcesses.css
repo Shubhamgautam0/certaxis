@@ -1,0 +1,166 @@
+.certificateProcessesContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.certificateProcessesCard {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificateProcessesHeader {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.certificateProcessesHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.certificateProcessesTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.certificateProcessesBadge {
+  padding: 6px 12px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.certificateProcessesContent {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificateProcessesStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.certificateProcessesStatItem {
+  text-align: center;
+}
+
+.certificateProcessesStatLabel {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.certificateProcessesStatValue {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.certificateProcessesActiveColor {
+  color: #3b82f6;
+}
+
+.certificateProcessesCompletedColor {
+  color: #10b981;
+}
+
+.certificateProcessesFailedColor {
+  color: #ef4444;
+}
+
+.certificateProcessesChartContainer {
+  flex: 1;
+  min-height: 350px;
+}
+
+.certificateProcessesIcon {
+  font-size: 20px;
+}
+
+/* Algorithm Distribution specific styles */
+.algorithmDistributionContainer {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.algorithmDistributionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.algorithmDistributionTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.algorithmDistributionChart {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 32px;
+  flex-shrink: 0;
+}
+
+.algorithmDistributionLegend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+
+.algorithmDistributionLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.algorithmDistributionColorIndicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.algorithmDistributionName {
+  font-size: 14px;
+  color: #1f2937;
+  white-space: nowrap;
+}
+
+.algorithmDistributionValue {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}

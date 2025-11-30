@@ -1,65 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate, useLocation, Routes, Route } from 'react-router-dom';
 import Sidebar from '../../layout/sidebar';
 import Dashboard from '../../layout/dashboard';
-import '../../styles/global.css';
 import CreateCA from '../../pages/CAManagenent/CreateCA';
 import ViewCA from '../../pages/CAManagenent/ViewCA';
-import EditCA from '../../pages/CAManagenent/EditCA';
-import DeleteCA from '../../pages/CAManagenent/DeleteCA';
-import GenerateCertificate from '../../pages/CertifitaceManagement/GenerateCertificate';
-import GenerateMutualCertificate from '../../pages/CertifitaceManagement/GenerateMutualCertificate';
-import GenerateCertificateWithCSR from '../../pages/CertifitaceManagement/GenerateCertificateWithCSR';
-import InitiateScan from '../../pages/CertificateDiscovery/InitiateScan';
-import ViewScanReport from '../../pages/CertificateDiscovery/ViewScanReport';
 
-const MainLayout = () => {
-  const [activeComponent, setActiveComponent] = useState<string>('Dashboard');
 
-  const renderActiveComponent = () => {
-    switch (activeComponent) {
-      case 'Dashboard':
-        return <Dashboard />;
+const MainLayout: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-      case 'CreateCA':
-        return <CreateCA />;
+  const getActiveComponent = () => {
+    const path = location.pathname;
+    if (path === '/dashboard' || path === '/') return 'Dashboard';
+    return path.split('/').pop() || 'Dashboard';
+  };
 
-      case 'ViewCA':
-        return <ViewCA />;
+  const [activeComponent, setActiveComponent] = React.useState<string>(getActiveComponent());
 
-      case 'EditCA':
-        return <EditCA />;
+  React.useEffect(() => {
+    setActiveComponent(getActiveComponent());
+  }, [location]);
 
-      case 'DeleteCA':
-        return <DeleteCA />;
-
-      case 'GenerateCertificate':
-        return <GenerateCertificate />;
-
-      case 'GenerateMutualCertificate':
-        return <GenerateMutualCertificate />;
-
-      case 'GenerateCertificateWithCSR':
-        return <GenerateCertificateWithCSR />;
-
-      case 'InitiateScan':
-        return <InitiateScan />;
-
-      case 'ViewScanReport':
-        return <ViewScanReport />;
-
-      default:
-        return <Dashboard />;
-    }
+  const handleSetActiveComponent = (component: string) => {
+    setActiveComponent(component);
+    navigate(component === 'Dashboard' ? '/dashboard' : `/${component}`);
   };
 
   return (
     <div className="app">
-      <Sidebar 
+      <div className='main-sidebar'>
+        <Sidebar 
         activeComponent={activeComponent} 
-        setActiveComponent={setActiveComponent} 
+        setActiveComponent={handleSetActiveComponent} 
       />
+      </div>
       <main className="main-content">
-        {renderActiveComponent()}
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/CreateCA" element={<CreateCA />} />
+          <Route path="/ViewCA" element={<ViewCA />} />
+          <Route path="*" element={<Dashboard />} />
+        </Routes>
       </main>
     </div>
   );

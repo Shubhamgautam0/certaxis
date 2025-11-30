@@ -3,7 +3,10 @@ import Header from './header';
 import StatsCard from './statusCard';
 import ChartCard from './chartCard';
 import SecurityIssues from './securityIssue'; 
+// import { CertificateProcess } from './certificateProcess'; // Import the component
 import { dashboardData } from '../data/dashboard';
+import CertificateProcesses from './certificateProcess';
+import AlgorithmDistribution from './AlgorithmDistribution';
 
 const Dashboard: React.FC = () => {
   const { 
@@ -15,6 +18,14 @@ const Dashboard: React.FC = () => {
     eccCertificates,
     validationStatus 
   } = dashboardData;
+
+  // Mock data for the chart - you'll need to add this to your dashboardData
+  const certificateProcessData = {
+    chartSeries: [
+      { name: 'Certificates Processed', data: [65, 78, 66, 79, 95, 87, 90, 91, 76, 85, 92, 88] },
+      { name: 'Certificates Issued', data: [50, 62, 55, 65, 75, 70, 78, 80, 68, 72, 85, 79] }
+    ]
+  };
 
   return (
     <div className="dashboard">
@@ -49,42 +60,11 @@ const Dashboard: React.FC = () => {
 
       <div className="charts-grid">
         <div className="chart-row">
-          <ChartCard title="Certificate Processes">
-            <div className="process-bars">
-              {Object.entries(processStatus).map(([key, value]) => (
-                <div key={key} className="process-bar">
-                  <span className="process-label">{key}</span>
-                  <div className="bar-container">
-                    <div 
-                      className="bar" 
-                      style={{ width: `${(value / 600) * 100}%` }}
-                    ></div>
-                  </div>
-                  <span className="process-value">{value}</span>
-                </div>
-              ))}
-            </div>
-          </ChartCard>
 
-          <ChartCard title="Algorithm Distribution">
-            <div className="algorithm-distribution">
-              {algorithmDistribution.map((algo) => (
-                <div key={algo.name} className="algorithm-item">
-                  <div className="algorithm-info">
-                    <span className="algorithm-name">{algo.name}</span>
-                    <span className="algorithm-percentage">{algo.percentage}%</span>
-                  </div>
-                  <div className="algorithm-bar">
-                    <div 
-                      className="algorithm-fill"
-                      style={{ width: `${algo.percentage}%` }}
-                    ></div>
-                  </div>
-                  <span className="algorithm-count">{algo.count}</span>
-                </div>
-              ))}
-            </div>
-          </ChartCard>
+          {/* Add the CertificateProcess component */}
+          <CertificateProcesses />
+
+          <AlgorithmDistribution />
         </div>
 
         <div className="chart-row">

@@ -32,6 +32,7 @@ export interface SecurityIssue {
 
 export interface DashboardData {
   certificateStats: CertificateStats;
+  certificateProcessData: { chartSeries: { name: string; data: number[] }[] };
   algorithmDistribution: AlgorithmDistribution[];
   processStatus: ProcessStatus;
   securityIssues: SecurityIssue[];
@@ -59,6 +60,12 @@ export const dashboardData: DashboardData = {
     fixedIssues: 8,
     activeProcesses: 156,
     processesGrowth: 18.3
+  },
+  certificateProcessData: {
+    chartSeries: [
+      { name: 'Certificates Processed', data: [65, 78, 66, 79, 95, 87, 90, 91, 76, 85, 92, 88] },
+      { name: 'Certificates Issued', data: [50, 62, 55, 65, 75, 70, 78, 80, 68, 72, 85, 79] }
+    ]
   },
   algorithmDistribution: [
     { name: 'RSA-2048', percentage: 49, count: 612 },
@@ -94,44 +101,3 @@ export const dashboardData: DashboardData = {
   }
 };
 
-interface SidebarProps {
-  activeComponent: string;
-  setActiveComponent: (component: string) => void;
-}
-
-export interface SidebarItem {
-  name: string;
-  icon?: string;
-  subItems?: {
-    name: string;
-    component: string;
-  }[];
-}
-
-export const sidebarItems: SidebarItem[] = [
-  { name: 'Dashboard' },
-  { 
-    name: 'CA Management',
-    subItems: [
-      { name: 'Create CA', component: 'CreateCA' },
-      { name: 'View CA', component: 'ViewCA' },
-      { name: 'Edit CA', component: 'EditCA' },
-      { name: 'Delete CA', component: 'DeleteCA' }
-    ]
-  },
-  { 
-    name: 'Certificate Management',
-    subItems: [
-      { name: 'Generate Certificate', component: 'GenerateCertificate' },
-      { name: 'Generate Mutual Certificate', component: 'GenerateMutualCertificate' },
-      { name: 'Generate Certificate with CSR', component: 'GenerateCertificateWithCSR' }
-    ]
-  },
-  { 
-    name: 'Certificate Discovery',
-    subItems: [
-      { name: 'Initiate Scan', component: 'InitiateScan' },
-      { name: 'View Scan Report', component: 'ViewScanReport' }
-    ]
-  },
-];
